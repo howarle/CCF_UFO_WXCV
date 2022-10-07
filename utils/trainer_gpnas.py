@@ -31,8 +31,8 @@ class GPNAS_train_model:
         self.data_all_X, self.data_all_Y = X_all_k, Y_all_k
 
 
-        for c_flag in range(2,3):
-            for m_flag in range(2,3):
+        for c_flag in range(1,3):
+            for m_flag in range(1,3):
                 # 初始该任务的gpnas预测器参数
                 gp = GPNAS(c_flag, m_flag)
 
@@ -64,9 +64,6 @@ class GPNAS_train_model:
 
         self.trained = True
         return self.model_acc
-        # 基于测试集评估预测的Kendalltau
-        print(f'==== [{name_list[i]}] Kendalltau:',
-              scipy.stats.stats.kendalltau(y_predict, Y_test_k))
 
     def do_predict(self, input_X):
         rank_all = []

@@ -12,13 +12,13 @@ def convert_X_1(arch_str):
             elm = arch_str[i]
             ts = ts + elm
             if elm == '1':
-                temp_arch = temp_arch + [1, 0, 0]
+                temp_arch = temp_arch + [1]
             elif elm == '2':
-                temp_arch = temp_arch + [0, 2, 0]
+                temp_arch = temp_arch + [2]
             elif elm == '3':
-                temp_arch = temp_arch + [0, 0, 3]
+                temp_arch = temp_arch + [3]
             else:
-                temp_arch = temp_arch + [0, 0, 0]
+                temp_arch = temp_arch + [0]
 
     return temp_arch
 

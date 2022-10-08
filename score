@@ -1,0 +1,212 @@
+排名	参赛团队	score	score_market1501	score_vehicleid	score_dukemtmc  score_veri	score_cplfw	score_sop	score_msmt17	score_veriwild	提交时间
+15 HowarLi的团队 0.78566	0.87137	            0.66044       	0.89309        0.89904	    0.30839	    0.80421	    0.94071	        0.90799	        2022-09-07 21:23
+
+
+
+
+====== predict acc ======
+    cplfw_rank acc:0.275959595959596 ======
+    market1501_rank acc:0.8375757575757578 ======
+    dukemtmc_rank acc:0.903838383838384 ======
+    msmt17_rank acc:0.9325252525252528 ======
+    veri_rank acc:0.894949494949495 ======
+    vehicleid_rank acc:0.6949494949494951 ======
+    veriwild_rank acc:0.9260606060606063 ======
+    sop_rank acc:0.802828282828283 ======
+
+====== keras predict acc ======
+    cplfw_rank acc:0.20969696969696974
+    market1501_rank acc:0.8763636363636366
+    dukemtmc_rank acc:0.8642424242424244
+    msmt17_rank acc:0.9292929292929295
+    veri_rank acc:0.8311111111111112
+    vehicleid_rank acc:0.6286868686868687
+    veriwild_rank acc:0.8250505050505053
+    sop_rank acc:0.8016161616161618
+
+====== keras predict acc ======(qiucksort)
+    cplfw_rank acc:0.12646464646464647
+    market1501_rank acc:0.7717171717171718
+    dukemtmc_rank acc:0.7907070707070709
+    msmt17_rank acc:0.8557575757575759
+    veri_rank acc:0.7402020202020203
+    vehicleid_rank acc:0.5874747474747476
+    veriwild_rank acc:0.8412121212121213
+    sop_rank acc:0.7608080808080809
+
+====== keras predict acc ======(convert2.0)两种特征值作区分
+    cplfw_rank acc:0.2185858585858586
+    market1501_rank acc:0.8206060606060608
+    dukemtmc_rank acc:0.8634343434343436
+    msmt17_rank acc:0.9252525252525253
+    veri_rank acc:0.8335353535353537
+    vehicleid_rank acc:0.5919191919191921
+    veriwild_rank acc:0.8892929292929294
+    sop_rank acc:0.7220202020202021
+ 
+====== keras predict acc ======(fullsort convert3.0) 10层后特征值加强
+    cplfw_rank acc:0.2892929292929294
+    market1501_rank acc:0.8492929292929294
+    dukemtmc_rank acc:0.8416161616161618
+    msmt17_rank acc:0.933737373737374
+    veri_rank acc:0.8444444444444446
+    vehicleid_rank acc:0.6343434343434344
+    veriwild_rank acc:0.8884848484848487
+    sop_rank acc:0.7680808080808083
+ 
+ ====== keras predict acc ======(qiucksort convert3.0) 10层后特征值加强
+    cplfw_rank acc:0.18666666666666668
+    market1501_rank acc:0.7931313131313132
+    dukemtmc_rank acc:0.8913131313131315
+    msmt17_rank acc:0.9406060606060608
+    veri_rank acc:0.8315151515151517
+    vehicleid_rank acc:0.6525252525252526
+    veriwild_rank acc:0.846868686868687
+    sop_rank acc:0.8044444444444446
+
+
+-------- cplfw_rank --------
+None  AVE mean gp : 1.3320955413584914
+None  AVE mean gp jonit : 1.3540834355857678
+None  c_flag:2 m_flag:2 acc:0.2513131313131313 jiont_acc:0.24242424242424246
+-------- market1501_rank --------
+None  AVE mean gp : 0.9185390225787919
+None  AVE mean gp jonit : 0.9063653526415234
+None  c_flag:2 m_flag:2 acc:0.8327272727272729 jiont_acc:0.8343434343434345
+-------- dukemtmc_rank --------
+None  AVE mean gp : 0.6733768179781657
+None  AVE mean gp jonit : 0.7301219580969484
+None  c_flag:2 m_flag:2 acc:0.9006060606060607 jiont_acc:0.9022222222222224
+-------- msmt17_rank --------
+None  AVE mean gp : 0.5145613775236754
+None  AVE mean gp jonit : 0.5216104141702127
+None  c_flag:2 m_flag:2 acc:0.9321212121212122 jiont_acc:0.9373737373737375
+-------- veri_rank --------
+None  AVE mean gp : 0.9607592437738295
+None  AVE mean gp jonit : 0.9400108296341685
+None  c_flag:2 m_flag:2 acc:0.8892929292929294 jiont_acc:0.8905050505050507
+-------- vehicleid_rank --------
+None  AVE mean gp : 0.7257395995592038
+None  AVE mean gp jonit : 0.610197459773238
+None  c_flag:2 m_flag:2 acc:0.6921212121212122 jiont_acc:0.6961616161616163
+-------- veriwild_rank --------
+None  AVE mean gp : 1.1099555285496092
+None  AVE mean gp jonit : 1.2354999720579913
+None  c_flag:2 m_flag:2 acc:0.9216161616161618 jiont_acc:0.9240404040404041
+-------- sop_rank --------
+None  AVE mean gp : 0.9274913784491489
+None  AVE mean gp jonit : 0.9151747240071102
+None  c_flag:2 m_flag:2 acc:0.78989898989899 jiont_acc:0.8012121212121214
+
+
+
+origin:
+AVE mean gp : 1.3320955413584914
+AVE mean gp jonit : 1.3540834355857678
+==== [cplfw_rank] Kendalltau: KendalltauResult(correlation=0.24242424242424246, pvalue=0.0003519181867581149)
+AVE mean gp : 0.9185390225787919
+AVE mean gp jonit : 0.9063653526415234
+==== [market1501_rank] Kendalltau: KendalltauResult(correlation=0.8343434343434345, pvalue=9.099861412072896e-35)
+AVE mean gp : 0.6733768179781657
+AVE mean gp jonit : 0.7301219580969484
+==== [dukemtmc_rank] Kendalltau: KendalltauResult(correlation=0.9022222222222224, pvalue=2.30635289753877e-40)
+AVE mean gp : 0.5145613775236754
+AVE mean gp jonit : 0.5216104141702127
+==== [msmt17_rank] Kendalltau: KendalltauResult(correlation=0.9373737373737375, pvalue=1.9723928347007225e-43)
+AVE mean gp : 0.9607592437738295
+AVE mean gp jonit : 0.9400108296341685
+==== [veri_rank] Kendalltau: KendalltauResult(correlation=0.8905050505050507, pvalue=2.289782193236896e-39)
+AVE mean gp : 0.7257395995592038
+AVE mean gp jonit : 0.610197459773238
+==== [vehicleid_rank] Kendalltau: KendalltauResult(correlation=0.6961616161616163, pvalue=1.038819418287894e-24)
+AVE mean gp : 1.1099555285496092
+AVE mean gp jonit : 1.2354999720579913
+==== [veriwild_rank] Kendalltau: KendalltauResult(correlation=0.9240404040404041, pvalue=2.967206024176396e-42)
+AVE mean gp : 0.9274913784491489
+AVE mean gp jonit : 0.9151747240071102
+==== [sop_rank] Kendalltau: KendalltauResult(correlation=0.8012121212121214, pvalue=3.416045491867215e-32)
+
+
+
+# 1,1
+AVE mean gp : 1.2715835988900017
+AVE mean gp jonit : 1.4092520270528517
+==== [cplfw_rank] Kendalltau: KendalltauResult(correlation=0.2331313131313132, pvalue=0.0005887457591086032)
+AVE mean gp : 0.8954574645046033
+AVE mean gp jonit : 0.8929640941816388
+==== [market1501_rank] Kendalltau: KendalltauResult(correlation=0.8355555555555557, pvalue=7.29280393233524e-35)
+AVE mean gp : 0.6788626763484497
+AVE mean gp jonit : 0.70373328739285
+==== [dukemtmc_rank] Kendalltau: KendalltauResult(correlation=0.8993939393939395, pvalue=4.024657968464476e-40)
+AVE mean gp : 0.5444587555151101
+AVE mean gp jonit : 0.5280358451301888
+==== [msmt17_rank] Kendalltau: KendalltauResult(correlation=0.9301010101010101, pvalue=8.694726740738795e-43)
+AVE mean gp : 1.029513363508152
+AVE mean gp jonit : 0.9602248798432634
+==== [veri_rank] Kendalltau: KendalltauResult(correlation=0.8804040404040405, pvalue=1.6174163102713964e-38)
+AVE mean gp : 0.7488525628963427
+AVE mean gp jonit : 0.6098127007112314
+==== [vehicleid_rank] Kendalltau: KendalltauResult(correlation=0.680808080808081, pvalue=1.0560929760198889e-23)
+AVE mean gp : 1.0963670339171836
+AVE mean gp jonit : 1.2650354966770663
+==== [veriwild_rank] Kendalltau: KendalltauResult(correlation=0.9163636363636364, pvalue=1.3888224181464908e-41)
+AVE mean gp : 1.0443251654564403
+AVE mean gp jonit : 0.9454315496112248
+==== [sop_rank] Kendalltau: KendalltauResult(correlation=0.802828282828283, pvalue=2.5723276419344177e-32)
+
+
+
+# 1,2
+AVE mean gp : 1.197106008199732
+AVE mean gp jonit : 1.3882888313583672
+==== [cplfw_rank] Kendalltau: KendalltauResult(correlation=0.23111111111111118, pvalue=0.000656894043558979)
+AVE mean gp : 0.9281372920154358
+AVE mean gp jonit : 0.9027532977848619
+==== [market1501_rank] Kendalltau: KendalltauResult(correlation=0.8327272727272729, pvalue=1.2218205783996364e-34)
+AVE mean gp : 0.7425500481551149
+AVE mean gp jonit : 0.7271961685443832
+==== [dukemtmc_rank] Kendalltau: KendalltauResult(correlation=0.9006060606060607, pvalue=3.1709614648787916e-40)
+AVE mean gp : 0.55562557030914
+AVE mean gp jonit : 0.5217822333600598
+==== [msmt17_rank] Kendalltau: KendalltauResult(correlation=0.9305050505050507, pvalue=8.009287178398512e-43)
+AVE mean gp : 0.9952632917239909
+AVE mean gp jonit : 0.9360034446241015
+==== [veri_rank] Kendalltau: KendalltauResult(correlation=0.8836363636363638, pvalue=8.673107330325714e-39)
+AVE mean gp : 0.6665125034537417
+AVE mean gp jonit : 0.5883812853676834
+==== [vehicleid_rank] Kendalltau: KendalltauResult(correlation=0.686868686868687, pvalue=4.253745373069665e-24)
+AVE mean gp : 1.157702282112246
+AVE mean gp jonit : 1.2919537620051482
+==== [veriwild_rank] Kendalltau: KendalltauResult(correlation=0.9216161616161618, pvalue=4.837475757315388e-42)
+AVE mean gp : 0.9167153941875844
+AVE mean gp jonit : 0.8824782653842418
+==== [sop_rank] Kendalltau: KendalltauResult(correlation=0.8040404040404042, pvalue=2.0785840739877905e-32)
+
+
+
+# 2,1
+AVE mean gp : 1.2618528551758668
+AVE mean gp jonit : 1.3690054678662447
+/tmp/ipykernel_24764/711052779.py:34: DeprecationWarning: Please use `kendalltau` from the `scipy.stats` namespace, the `scipy.stats.stats` namespace is deprecated.
+==== [cplfw_rank] Kendalltau: KendalltauResult(correlation=0.24323232323232327, pvalue=0.00033623630199825427)
+AVE mean gp : 0.8974626386114265
+AVE mean gp jonit : 0.9001047731187376
+==== [market1501_rank] Kendalltau: KendalltauResult(correlation=0.8359595959595961, pvalue=6.773562957501889e-35)
+AVE mean gp : 0.6846004320976392
+AVE mean gp jonit : 0.7184389234679718
+==== [dukemtmc_rank] Kendalltau: KendalltauResult(correlation=0.9022222222222224, pvalue=2.30635289753877e-40)
+AVE mean gp : 0.549623517208091
+AVE mean gp jonit : 0.5284418159983997
+==== [msmt17_rank] Kendalltau: KendalltauResult(correlation=0.9373737373737375, pvalue=1.9723928347007225e-43)
+AVE mean gp : 1.026184836636738
+AVE mean gp jonit : 0.9530153131408663
+==== [veri_rank] Kendalltau: KendalltauResult(correlation=0.8872727272727274, pvalue=4.290666747265673e-39)
+AVE mean gp : 0.7461929780434935
+AVE mean gp jonit : 0.6236975720023274
+==== [vehicleid_rank] Kendalltau: KendalltauResult(correlation=0.6901010101010102, pvalue=2.6105825865534414e-24)
+AVE mean gp : 1.0892052376501815
+AVE mean gp jonit : 1.2094045309900678
+==== [veriwild_rank] Kendalltau: KendalltauResult(correlation=0.9216161616161618, pvalue=4.837475757315388e-42)
+AVE mean gp : 1.039107293834301
+AVE mean gp jonit : 0.9469049235129332
+==== [sop_rank] Kendalltau: KendalltauResult(correlation=0.8012121212121214, pvalue=3.416045491867215e-32)

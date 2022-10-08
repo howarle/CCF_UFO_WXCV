@@ -1,3 +1,4 @@
+import logging
 from keras.models import Sequential
 from keras.layers import Dense, Conv1D, MaxPooling1D, Flatten
 from keras.layers import LSTM
@@ -99,7 +100,7 @@ class keras_train_model:
             score[i2] = score[i2] - v
         return score
 
-    def do_train(self, input_X, input_Y):
+    def do_train_(self, input_X, input_Y):
         X, Y, Xi = self.data_encode(input_X, input_Y)
         X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=.2)
 
@@ -113,10 +114,7 @@ class keras_train_model:
 
         return self.model_acc
 
-    def do_train1(self, input_X, input_Y):
-        # X, Y, Xi = self.data_encode(input_X, input_Y)
-        # X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=.2)
-
+    def do_train(self, input_X, input_Y):
         X_tr, X_te, y_tr, y_te = train_test_split(input_X, input_Y, test_size=.2)
         X_train, y_train, Xi = self.data_encode(X_tr, y_tr)
         X_test, y_test, Xi = self.data_encode(X_te, y_te)
@@ -137,6 +135,13 @@ class keras_train_model:
         return self.model_acc
 
     def do_predict(self, input_X):
+        logging.info(f"start predict   input size:{len(input_X)}")
+        if (False):
+            X, _, Xi = self.data_encode(input_X)
+            Y = self.model.predict(X, batch_size=2048, use_multiprocessing=True)
+            out_Y = self.data_Y_decode(Y, Xi, len(input_X))
+            return out_Y
+
         x_size = len(input_X)
         a = [i for i in range(x_size)]
 
@@ -152,13 +157,16 @@ class keras_train_model:
                     tmp.append(it.tot_siz)
             qu_list = mg.query()
             print(f"cnt:{cnt}  len(recod):{len(recod)} len(ask_list):{len(qu_list)} len(mg.seg_list):{len(mg.seg_list)} {set(tmp)}")
-        
+            logging.debug(f"cnt:{cnt}  len(recod):{len(recod)} len(ask_list):{len(qu_list)} len(mg.seg_list):{len(mg.seg_list)} {set(tmp)}")
+
             pre_list = []
             for it in qu_list:
                 if it not in recod:
-                    pre_list.append(tuple((it[0], it[1])))
+                    pre_list.append(it)
             print("conbime_data...")
+            logging.debug(f"conbime_data...")
             X = self.conbime_data(pre_list, input_X)
+            logging.debug(f"conbime_data done")
             Y = self.model.predict(X, batch_size=2048, use_multiprocessing=True)
             
             for idx, it in enumerate(pre_list):
@@ -166,16 +174,12 @@ class keras_train_model:
 
             if mg.do(recod):
                 break
-
+        
+        logging.info(f"finsh predict")
         ans = mg.ans
         assert(len(ans) == x_size)
         out_Y = [0 for i in range(x_size)]
         for i in range(len(ans)):
             out_Y[ans[i]] = i
 
-        return out_Y
-
-        # X, _, Xi = self.data_encode(input_X)
-        # Y = self.model.predict(X, batch_size=1024)
-        # out_Y = self.data_Y_decode(Y, Xi, len(input_X))
         return out_Y

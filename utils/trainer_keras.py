@@ -159,7 +159,7 @@ class keras_train_model:
                     pre_list.append(tuple((it[0], it[1])))
             print("conbime_data...")
             X = self.conbime_data(pre_list, input_X)
-            Y = self.model.predict(X, batch_size=2048)
+            Y = self.model.predict(X, batch_size=2048, use_multiprocessing=True)
             
             for idx, it in enumerate(pre_list):
                 recod[it] = Y[idx][0] - Y[idx][1]
@@ -169,7 +169,7 @@ class keras_train_model:
 
         ans = mg.ans
         assert(len(ans) == x_size)
-        out_Y = [0 for i in range(len(input_X))]
+        out_Y = [0 for i in range(x_size)]
         for i in range(len(ans)):
             out_Y[ans[i]] = i
 

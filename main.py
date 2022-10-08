@@ -75,7 +75,7 @@ def with_GPNAS():
 def with_keras():
     # rank_name_list = ['cplfw_rank']
     print(f"======== keras start training ========")
-    predict_rank = {name: [] for name in rank_name_list}
+    predict_rank = {name: [0 for i in range(len(data_test_X))] for name in rank_name_list}
 
     done_str = ""
     for idx, name in enumerate(rank_name_list):

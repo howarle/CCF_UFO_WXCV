@@ -6,7 +6,8 @@ from utils.trainer_gpnas import GPNAS_train_model
 from utils.convert_x import convert_X_1 as convert_X
 
 logging.basicConfig(level=logging.DEBUG, filename="test.log",
-                    format=('%(filename)s: '
+                    format=('%(asctime)s '
+                            '%(filename)s: '
                             '%(levelname)s: '
                             '%(funcName)s(): '
                             '%(lineno)d:\t'
@@ -16,7 +17,7 @@ logging.basicConfig(level=logging.DEBUG, filename="test.log",
 rank_name_list = ['cplfw_rank', 'market1501_rank', 'dukemtmc_rank',
                   'msmt17_rank', 'veri_rank', 'vehicleid_rank', 'veriwild_rank', 'sop_rank']
 
-# rank_name_list = ['cplfw_rank']
+# rank_name_list = ['sop_rank']
 
 def data_loader(fpath):
     '''
@@ -85,13 +86,15 @@ def with_keras(do_predict = False):
         print(f"-------- {name} --------")
         model = keras_train_model()
         acc = model.do_train(data_input_X, data_input_Y[name])
-        models[name] = model
 
         if do_predict:
             rank = model.do_predict(data_test_X)
             predict_rank[name] = rank
             done_str = done_str + str(name) + '-'
             data_output(data_test_ori, predict_rank, f"_{done_str[:-1]}")
+
+        model.model = None
+        models[name] = model
 
     print(f"====== keras predict acc ======")
     for idx, name in enumerate(rank_name_list):

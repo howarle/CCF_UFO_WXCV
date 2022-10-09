@@ -92,7 +92,8 @@ class qiuckSegment:
         self.is_done = False
         self.a = a
         self.need_split = False
-        self.bucket_siz = max(3, int(log(self.tot_siz, 2)))
+        self.bucket_siz = max(10, 10+int(log(self.tot_siz, 2)))
+        # self.bucket_siz = max(10, int(self.tot_siz*0.001))
 
     def __add_ask(self, x, y) -> None:
         if x > y:
